@@ -2,7 +2,7 @@
 exports.pingPong = function(goal) {
   var output = [];
   for (var i = 1; i <= goal; i++) {
-    if (i % 15 == 0) {
+    if (i % 15 === 0) {
       output.push("ping-pong");
     } else if (i % 3 === 0) {
       output.push("ping");
@@ -13,7 +13,7 @@ exports.pingPong = function(goal) {
     }
   }
   return output;
-}
+};
 
 },{}],2:[function(require,module,exports){
 var pingPong = require('./../js/ping-pong.js').pingPong;
@@ -51,8 +51,9 @@ $(document).ready(function() {
     $('#location').val("");
     $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey, function(response) {
       $('.showWeather').text("The humidity in " + city + " is " + response.main.humidity + "%");
-      console.log (JSON.stringify(response))
+      console.log (JSON.stringify(response));
     });
+      console.log ("Notice: this comes before humidity");
   });
 });
 
