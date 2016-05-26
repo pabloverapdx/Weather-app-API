@@ -1,5 +1,5 @@
 var apiKey = require('./../.env').apiKey;
-var Temp = require('./../js/celsius.js').Temp;
+var Temp = require('./../js/tempConvertion.js').Temp;
 
 $(document).ready(function() {
   $('#weatherLocation').click(function() {

@@ -2,22 +2,6 @@
 exports.apiKey = "b6a1f70b3c558795df031c4c2d030952";  
 
 },{}],2:[function(require,module,exports){
-exports.Temp = function(kelvin) {
-  this.kelvin = kelvin;
-};
-
-exports.Temp.prototype.toCelcius = function() {
-  var celsius = this.kelvin -273.15;
-  return "The temperature in celsius is " + celsius.toFixed() + "C .";
-};
-
-
-exports.Temp.prototype.toFahrenheit = function() {
-  var fahrenheit = (this.kelvin * (9/5)) - 459.67;
-  return "The temperature in fahrenheit is " + fahrenheit.toFixed() + "F .";
-};
-
-},{}],3:[function(require,module,exports){
 exports.pingPong = function(goal) {
   var output = [];
   for (var i = 1; i <= goal; i++) {
@@ -32,6 +16,22 @@ exports.pingPong = function(goal) {
     }
   }
   return output;
+};
+
+},{}],3:[function(require,module,exports){
+exports.Temp = function(kelvin) {
+  this.kelvin = kelvin;
+};
+
+exports.Temp.prototype.toCelcius = function() {
+  var celsius = this.kelvin -273.15;
+  return "The temperature in celsius is " + celsius.toFixed() + "C .";
+};
+
+
+exports.Temp.prototype.toFahrenheit = function() {
+  var fahrenheit = (this.kelvin * (9/5)) - 459.67;
+  return "The temperature in fahrenheit is " + fahrenheit.toFixed() + "F .";
 };
 
 },{}],4:[function(require,module,exports){
@@ -63,7 +63,7 @@ $(document).ready(function(){
 });
 
 var apiKey = require('./../.env').apiKey;
-var Temp = require('./../js/celsius.js').Temp;
+var Temp = require('./../js/tempConvertion.js').Temp;
 
 $(document).ready(function() {
   $('#weatherLocation').click(function() {
@@ -80,6 +80,7 @@ $(document).ready(function() {
       $('.showTemperatureKelvin').text("The Kelvin temperature in " + city + " is " + response.main.temp + ".");
       console.log (celsius);
       console.log (fahrenheit);
+      //for now this shows celsius and fahrenheit to the console
 
 
         // console.log (JSON.stringify(response));
@@ -87,4 +88,4 @@ $(document).ready(function() {
     });
 });
 
-},{"./../.env":1,"./../js/celsius.js":2,"./../js/ping-pong.js":3}]},{},[4]);
+},{"./../.env":1,"./../js/ping-pong.js":2,"./../js/tempConvertion.js":3}]},{},[4]);
