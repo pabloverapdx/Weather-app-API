@@ -16,6 +16,7 @@ $(document).ready(function() {
       $('.showTemperatureKelvin').text("The Kelvin temperature in " + city + " is " + response.main.temp + ".");
       console.log (celsius);
       console.log (fahrenheit);
+      //for now this shows celsius and fahrenheit to the console
 
 
         // console.log (JSON.stringify(response));
