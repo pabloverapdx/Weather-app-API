@@ -2,6 +2,22 @@
 exports.apiKey = "b6a1f70b3c558795df031c4c2d030952";  
 
 },{}],2:[function(require,module,exports){
+exports.Temp = function(kelvin) {
+  this.kelvin = kelvin;
+};
+
+exports.Temp.prototype.toCelcius = function() {
+  var celsius = this.kelvin -273.15;
+  return "The temperature in celsius is " + celsius.toFixed() + "C .";
+};
+
+
+exports.Temp.prototype.toFahrenheit = function() {
+  var fahrenheit = (this.kelvin * (9/5)) - 459.67;
+  return "The temperature in fahrenheit is " + fahrenheit.toFixed() + "F .";
+};
+
+},{}],3:[function(require,module,exports){
 exports.pingPong = function(goal) {
   var output = [];
   for (var i = 1; i <= goal; i++) {
@@ -18,7 +34,7 @@ exports.pingPong = function(goal) {
   return output;
 };
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 var pingPong = require('./../js/ping-pong.js').pingPong;
 
 $(document).ready(function(){
@@ -47,19 +63,28 @@ $(document).ready(function(){
 });
 
 var apiKey = require('./../.env').apiKey;
+var Temp = require('./../js/celsius.js').Temp;
 
 $(document).ready(function() {
   $('#weatherLocation').click(function() {
     var city = $('#location').val();
     $('#location').val("");
     $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey, function(response) {
+
+
+      var newTemp = new Temp(response.main.temp);
+      var celsius = newTemp.toCelcius();
+      var fahrenheit = newTemp.toFahrenheit();
+
       $('.showHumidity').text("The humidity in " + city + " is " + response.main.humidity + "%");
       $('.showTemperatureKelvin').text("The Kelvin temperature in " + city + " is " + response.main.temp + ".");
-      console.log (JSON.stringify(response));
-    });
-      console.log ("Notice: this comes before humidity");
-  });
+      console.log (celsius);
+      console.log (fahrenheit);
 
+
+        // console.log (JSON.stringify(response));
+      });
+    });
 });
 
-},{"./../.env":1,"./../js/ping-pong.js":2}]},{},[3]);
+},{"./../.env":1,"./../js/celsius.js":2,"./../js/ping-pong.js":3}]},{},[4]);
