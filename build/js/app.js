@@ -2,23 +2,6 @@
 exports.apiKey = "b6a1f70b3c558795df031c4c2d030952";  
 
 },{}],2:[function(require,module,exports){
-exports.pingPong = function(goal) {
-  var output = [];
-  for (var i = 1; i <= goal; i++) {
-    if (i % 15 === 0) {
-      output.push("ping-pong");
-    } else if (i % 3 === 0) {
-      output.push("ping");
-    } else if (i % 5 === 0) {
-      output.push("pong");
-    } else  {
-      output.push(i);
-    }
-  }
-  return output;
-};
-
-},{}],3:[function(require,module,exports){
 exports.Temp = function(kelvin) {
   this.kelvin = kelvin;
 };
@@ -34,36 +17,9 @@ exports.Temp.prototype.toFahrenheit = function() {
   return "The temperature in fahrenheit is " + fahrenheit.toFixed() + "F .";
 };
 
-},{}],4:[function(require,module,exports){
-var pingPong = require('./../js/ping-pong.js').pingPong;
-
-$(document).ready(function(){
-  $('#ping-pong').submit(function(event){
-    event.preventDefault();
-    var goal = $('#goal').val();
-    var output = pingPong(goal);
-    output.forEach(function(element){
-      $('#solution').append("<li>" + element + "</li>");
-    });
-  });
-});
-
-$(document).ready(function(){
-  $('#signup').submit(function(event){
-    event.preventDefault();
-    var email = $('#email').val();
-    $('#signup').hide();
-    $('#solution').prepend('<p>Thank you, ' + email + ' has been added to our list!</p>');
-  });
-});
-
-
-$(document).ready(function(){
-  $('#time').text(moment());
-});
-
+},{}],3:[function(require,module,exports){
 var apiKey = require('./../.env').apiKey;
-var Temp = require('./../js/tempConvertion.js').Temp;
+var Temp = require('./../js/weather.js').Temp;
 
 $(document).ready(function() {
   $('#weatherLocation').click(function() {
@@ -88,4 +44,4 @@ $(document).ready(function() {
     });
 });
 
-},{"./../.env":1,"./../js/ping-pong.js":2,"./../js/tempConvertion.js":3}]},{},[4]);
+},{"./../.env":1,"./../js/weather.js":2}]},{},[3]);
