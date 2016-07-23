@@ -14,11 +14,8 @@ $(document).ready(function() {
 
       $('.showHumidity').text("The humidity in " + city + " is " + response.main.humidity + "%");
       $('.showTemperatureKelvin').text("The Kelvin temperature in " + city + " is " + response.main.temp + ".");
-      console.log (celsius);
-      console.log (fahrenheit);
-      //for now this shows celsius and fahrenheit to the console
-
-
+      $('.showTemperatureCelsius').text(celsius);
+      $('.showTemperatureFahrenheit').text(fahrenheit);
         // console.log (JSON.stringify(response));
       });
     });
