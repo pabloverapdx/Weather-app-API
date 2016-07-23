@@ -1,5 +1,8 @@
+html {
+	height: 100%;
+}
 body {
-	background-image: linear-gradient(260deg, #2376ae 1%, #c16ecf 100%);
+	background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
 }
 
 h1 {
@@ -12,7 +15,7 @@ h1 {
 label, input, button {
 	font-size: 30px;
 	margin: 5px auto 40px;
-	width: 90%;
+	width: 95%;
 	letter-spacing: 3px;
 }
 

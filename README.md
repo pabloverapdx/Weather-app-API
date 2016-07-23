@@ -8,7 +8,7 @@
 
 This project tell you the humidity and temperature in Kelvin, Celsius, and Fahrenheit based on your input.
 
-![screenshot of weather app API](img/screenshot.png)
+![screenshot of weather app API](img/weather.png)
 
 ### Known Bugs
 
