@@ -8,13 +8,13 @@ exports.Temp = function(kelvin) {
 
 exports.Temp.prototype.toCelcius = function() {
   var celsius = this.kelvin -273.15;
-  return "The temperature in celsius is " + celsius.toFixed() + "C .";
+  return "The temperature in celsius is " + celsius.toFixed() + "C.";
 };
 
 
 exports.Temp.prototype.toFahrenheit = function() {
   var fahrenheit = (this.kelvin * (9/5)) - 459.67;
-  return "The temperature in fahrenheit is " + fahrenheit.toFixed() + "F .";
+  return "The temperature in fahrenheit is " + fahrenheit.toFixed() + "F.";
 };
 
 },{}],3:[function(require,module,exports){
@@ -34,11 +34,8 @@ $(document).ready(function() {
 
       $('.showHumidity').text("The humidity in " + city + " is " + response.main.humidity + "%");
       $('.showTemperatureKelvin').text("The Kelvin temperature in " + city + " is " + response.main.temp + ".");
-      console.log (celsius);
-      console.log (fahrenheit);
-      //for now this shows celsius and fahrenheit to the console
-
-
+      $('.showTemperatureCelsius').text(celsius);
+      $('.showTemperatureFahrenheit').text(fahrenheit);
         // console.log (JSON.stringify(response));
       });
     });
