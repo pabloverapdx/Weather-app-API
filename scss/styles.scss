@@ -6,17 +6,27 @@ body {
 }
 
 h1 {
-	font-size: 45px;
+	font-size: 20px;
 	font-weight: bold;
-	margin: 50px auto 80px;
-	width: 60%;
+	margin: 50px auto 30px;
+	width: 95%;
+	text-align: center;
 }
 
-label, input, button {
-	font-size: 30px;
+label, input {
+	text-align: center;
+	font-size: 16px;
 	margin: 5px auto 40px;
 	width: 95%;
 	letter-spacing: 3px;
+}
+
+button {
+	width: 40%;
+	display: block;
+	margin: 0 auto;
+	font-size: 30px;
+	margin-bottom: 30px;
 }
 
 .showHumidity, .showTemperatureKelvin, .showTemperatureCelsius, .showTemperatureFahrenheit  {

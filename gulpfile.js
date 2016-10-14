@@ -21,6 +21,8 @@ var browserSync = require('browser-sync').create();
 var jshint = require ('gulp-jshint');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
+var gulp        = require('gulp');
+var deploy      = require('gulp-gh-pages');
 
 gulp.task('jshint', function(){
   return gulp.src(['js/*.js'])
@@ -107,4 +109,9 @@ gulp.task('cssBuild', function() {
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('./build/css'))
     .pipe(browserSync.stream());
+});
+
+gulp.task('deploy', function () {
+  return gulp.src("./dist/**/*")
+    .pipe(deploy())
 });
